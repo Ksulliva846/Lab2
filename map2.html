@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+        <style>
+        .myDiv {
+          border: 5px outset black;
+          background-color: lightblue;
+          text-align: center;
+        }
+        </style>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    </head>
+
+  <body style="background-color:#3E9761;">
+      <h1 style="text-align:center;">Places I Want To Visit</h1>
+        <div class="myDiv" id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+
+          });
+
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 10,
+               minZoom: 4
+            }).addTo(map);
+  var desertIcon = L.icon({
+        iconUrl: 'desert.png', // url that links to the icon image file
+        iconSize:     [38, 38], // size of the icon image in pixels
+        iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+        popupAnchor:  [0, -10]}); // point from which the popup should open, relative to the iconAnchor
+  var mountainIcon = L.icon({
+        iconUrl: 'mountain.png', // url that links to the icon image file
+        iconSize:     [38, 38], // size of the icon image in pixels
+        iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+        popupAnchor:  [0, -10]});// point from which the popup should open, relative to the iconAnchor
+    var cornIcon = L.icon({
+            iconUrl: 'corn.png', // url that links to the icon image file
+            iconSize:     [38, 38], // size of the icon image in pixels
+            iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+            popupAnchor:  [0, -10]});// point from which the popup should open, relative to the iconAnchor
+            var lighthouseIcon = L.icon({
+                    iconUrl: 'lighthouse.png', // url that links to the icon image file
+                    iconSize:     [38, 38], // size of the icon image in pixels
+                    iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+                    popupAnchor:  [0, -10]});// point from which the popup should open, relative to the iconAnchor
+            var marker3 = L.marker([36.5772957,-118.3213019,13.25], {icon: mountainIcon}).addTo(map);//Mount Whitney
+            var marker4 = L.marker([32.7763157,-106.3852099], {icon: desertIcon}).addTo(map);//White Sands desert
+            var marker5 = L.marker([43.718249,-98.0328807], {icon: cornIcon}).addTo(map);
+            var marker6 = L.marker([44.3193593,-68.3668494], {icon: lighthouseIcon}).addTo(map);//Corn Palace
+            var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Mount_Whitney_2003-03-25.jpg" alt="whiteSands" width="250">';
+            var pic4 = '<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Aerial_view_of_dunefield%2C_White_Sands_National_Park%2C_New_Mexico%2C_United_States.png" alt="Whitney" width="250">';
+            var pic5 = '<img src="https://upload.wikimedia.org/wikipedia/en/e/e5/CornPalace.jpg" alt="cornPalace" width="250">';
+            var pic6 = '<img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Bass_Harbor_Lighthouse_b.jpg" alt="acadia" width="250">';
+
+
+            marker3.bindPopup('<p style="color:black; font-weight:bold; text-align:center;"> Mount Whitney</p>' + pic3);
+            marker4.bindPopup('<p style="color:black; font-weight:bold; text-align:center;"> White Sands National Park</p>' + pic4);
+            marker5.bindPopup('<p style="color:black; font-weight:bold; text-align:center;"> The Worlds Only Corn Palace</p>' + pic5);
+            marker6.bindPopup('<p style="color:black; font-weight:bold; text-align:center;"> Acadia National Park</p>' + pic6);
+
+        </script>
+   </body>
+</html>
